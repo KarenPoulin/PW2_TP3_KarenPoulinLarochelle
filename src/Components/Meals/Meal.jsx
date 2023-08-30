@@ -8,6 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import MealService from '../../Service/TheMealService'
+import Accordeon from '../Accordion/Accordion';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const mealService = new MealService();
@@ -34,11 +35,7 @@ const Meal = () => {
                   <Card.Title className='fs-2 text-uppercase fw-bold'>{info.strMeal}</Card.Title>
                   <Card.Text>{info.strCategory}</Card.Text>
                   <Image src={info.strMealThumb} alt={info.strMeal} fluid thumbnail />
-                  <ListGroup>
-                    <ListGroupItem>{info.strIngredient1}</ListGroupItem>
-                    <ListGroupItem>{info.strMeasure1}</ListGroupItem>
-                  </ListGroup>
-                  <Card.Text>{info.strInstructions}</Card.Text>
+                  <Accordeon info={info}></Accordeon>
                 </Col>
             )}
           </Col>
