@@ -19,8 +19,8 @@ const IngredientsMeasures = ({info}) => {
     <ul>
         {ingredientAndMeasure.map((item, i) => (
             <li key={i}>
-                <span>{item.measure}</span>
-                <span>{item.ingredient} </span>
+                <span className='quicksand'>{item.measure}</span>
+                <span className='quicksand'>{item.ingredient} </span>
             </li>
         ))}
     </ul>

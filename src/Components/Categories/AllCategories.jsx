@@ -18,13 +18,16 @@ const AllCategories = () => {
 
   return (
     <Container>
-        <Card>
-            <Card.Title className='fs-1 text-uppercase fw-bold'>All Categories</Card.Title>
-            {data && data.categories.map(category =>
-                <Link to={`/categories/${category.strCategory}`} key={category.idCategory}>
-                    <Card.Subtitle className='my-2 fs-5 fw-bolder'>{category.strCategory}</Card.Subtitle>
-                </Link>
-            )}
+        <h1 className='fs-1 fw-bold text-uppercase quicksand text-white'>Recipe Book</h1>
+        <Card className='mt-5 p-0' md={12}>
+            <Card.Title className='fs-1 px-5 pt-4 pb-2 fw-bold merienda text-dark border-bottom border-dark'>All Categories</Card.Title>
+            <div className='my-2'>
+                {data && data.categories.map(category =>
+                    <Link className='link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to={`/categories/${category.strCategory}`} key={category.idCategory}>
+                        <Card.Subtitle className='py-3 fs-5 fw-bolder text-dark quicksand'>{category.strCategory}</Card.Subtitle>
+                    </Link>
+                )}
+            </div>
         </Card>
     </Container>
   )

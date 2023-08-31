@@ -4,12 +4,10 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import MealService from '../../Service/TheMealService'
 import Accordeon from '../Accordion/Accordion';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const mealService = new MealService();
 
@@ -27,13 +25,13 @@ const Meal = () => {
 
   return (
     <Container fluid>
-        <Link to='/'>Retour aux Catégories</Link>
-        <Card>
+        <Link className='quicksand text-white link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Card className='my-4'>
           <Col md={12}>
             {data && data.meals.map(info =>
                 <Col key={info.idMeal}>
-                  <Card.Title className='fs-2 text-uppercase fw-bold'>{info.strMeal}</Card.Title>
-                  <Card.Text>{info.strCategory}</Card.Text>
+                  <Card.Title className='fs-1 fw-bold merienda text-black'>{info.strMeal}</Card.Title>
+                  <Card.Text className='quicksand fs-5 text-success'>{info.strCategory}</Card.Text>
                   <Image src={info.strMealThumb} alt={info.strMeal} fluid thumbnail />
                   <Accordeon info={info}></Accordeon>
                 </Col>

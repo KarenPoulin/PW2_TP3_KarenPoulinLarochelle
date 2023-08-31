@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import MealService from '../../Service/TheMealService'
@@ -25,20 +24,22 @@ const Category = () => {
 
   return (
     <Container fluid>
-        <Link to='/'>Retour aux Catégories</Link>
-        <Card>
+        <Link className='quicksand text-white link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Card className='my-4 p-0'>
             <Col md={12}>
-                <Card.Title className='fs-1 text-uppercase fw-bold'>{params.name}</Card.Title>
-                {data && data.meals.map(meal =>
-                    <Row className='d-flex flex-row' key={meal.strMeal}>
-                        <Link to={`/meals/${meal.idMeal}`} >
-                            <Card.Subtitle className='fs-5'>{meal.strMeal}</Card.Subtitle>
-                        </Link>
-                        <Col md={2}>
-                            <Image src={meal.strMealThumb} alt={meal.strMeal} fluid thumbnail/>
-                        </Col>
-                    </Row>
-                )}
+                <Card.Title className='fs-1 py-4 mb-0 fw-bold merienda text-dark'>{params.name}</Card.Title>
+                <div className='py-4'>
+                    {data && data.meals.map(meal =>
+                        <div className='d-inline-flex flex-row-reverse justify-content-center align-items-center border-bottom border-success mt-2' key={meal.strMeal}>
+                            <Link className='link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to={`/meals/${meal.idMeal}`} >
+                                <Card.Subtitle className='fs-4 text-dark quicksand'>{meal.strMeal}</Card.Subtitle>
+                            </Link>
+                            <Col className='mt-2 mb-4 me-3' md={1}>
+                                <Image src={meal.strMealThumb} alt={meal.strMeal} fluid/>
+                            </Col>
+                        </div>
+                    )}
+                </div>
             </Col>
         </Card>
     </Container>
