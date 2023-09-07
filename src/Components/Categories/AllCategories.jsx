@@ -1,16 +1,16 @@
 import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
-import MealService from '../../Service/TheMealService'
+import CategoriesService from '../../Service/CategoriesService'
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 
-const mealService = new MealService();
+const categoriesService = new CategoriesService();
 
 const AllCategories = () => {
     const {isLoading, isError, data, error} = useQuery({
         queryKey: ['categories'],
-        queryFn: () => mealService.getAllCategories(),
+        queryFn: () => categoriesService.getAllCategories(),
     });
 
     if (isLoading) return <div>Loading</div>

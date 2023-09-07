@@ -6,17 +6,17 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import MealService from '../../Service/TheMealService'
+import RecipeService from '../../Service/RecipeService'
 import Accordeon from '../Accordeon/Accordeon';
 
-const mealService = new MealService();
+const recipeService = new RecipeService();
 
 const Meal = () => {
   const params = useParams();
 
   const { isLoading, isError, data, error } = useQuery({
       queryKey: ['meal', params.id],
-      queryFn: () => mealService.getMeal(params.id),
+      queryFn: () => recipeService.getMeal(params.id),
   });
 
   if (isLoading) return <div>Loading</div>

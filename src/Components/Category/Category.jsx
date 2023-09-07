@@ -6,9 +6,9 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
-import MealService from '../../Service/TheMealService'
+import CategoryService from '../../Service/CategoryService'
 
-const mealService = new MealService();
+const categoryService = new CategoryService();
 
 
 const Category = () => {
@@ -16,7 +16,7 @@ const Category = () => {
 
     const { isLoading, isError, data, error } = useQuery({
         queryKey: ['category', params.name],
-        queryFn: () => mealService.getCategory(params.name),
+        queryFn: () => categoryService.getCategory(params.name),
     });
 
     if (isLoading) return <div>Loading</div>
