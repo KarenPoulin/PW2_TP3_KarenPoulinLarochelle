@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import RecipeService from '../../Service/RecipeService'
 import Accordeon from '../Accordeon/Accordeon';
+import FavoriteButton from '../../favorites/components/FavoriteButton/FavoriteButton';
 
 const recipeService = new RecipeService();
 
@@ -25,7 +26,8 @@ const Meal = () => {
 
   return (
     <Container fluid>
-        <Link className='quicksand text-white link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Link className='quicksand text-white mx-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Link className='quicksand text-white mx-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/listfavoritesmeals'>Recettes Favoris</Link>
         <Card className='my-4'>
           <Col md={12}>
             {data && data.meals.map(info =>
@@ -34,6 +36,7 @@ const Meal = () => {
                   <Card.Text className='quicksand fs-5 text-success'>{info.strCategory}</Card.Text>
                   <Image src={info.strMealThumb} alt={info.strMeal} fluid thumbnail />
                   <Accordeon info={info}></Accordeon>
+                  <FavoriteButton meal={info} />
                 </Col>
             )}
           </Col>

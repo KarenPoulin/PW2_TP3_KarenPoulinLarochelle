@@ -8,7 +8,6 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import CategoryService from '../../Service/CategoryService'
 import FavoriteButton from '../../favorites/components/FavoriteButton/FavoriteButton';
-import ListFavoritesMeals from '../../favorites/components/ListFavoritesMeals/ListFavoritesMeals';
 
 
 const categoryService = new CategoryService();
@@ -28,7 +27,8 @@ const Category = () => {
 
   return (
     <Container fluid>
-        <Link className='quicksand text-white link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Link className='quicksand text-white mx-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
+        <Link className='quicksand text-white mx-2 link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/listfavoritesmeals'>Recettes Favoris</Link>
         <Card className='my-4 p-0'>
             <Col md={12}>
                 <Card.Title className='fs-1 py-4 mb-0 fw-bold merienda text-dark'>{params.name}</Card.Title>
@@ -46,9 +46,6 @@ const Category = () => {
                     )}
                 </div>
             </Col>
-        </Card>
-        <Card className='my-4 p-0 text-dark'>
-            <ListFavoritesMeals />
         </Card>
     </Container>
   )
