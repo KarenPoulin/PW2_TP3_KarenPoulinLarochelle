@@ -10,7 +10,6 @@ import Image from 'react-bootstrap/Image';
 
 const ListFavoritesMeals = () => {
     const favorites = useSelector(favoritesSelector);
-    console.log(favorites);
 
   return (
     <Container fluid>
