@@ -7,6 +7,9 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import CategoryService from '../../Service/CategoryService'
+import FavoriteButton from '../../favorites/components/FavoriteButton/FavoriteButton';
+import ListFavoritesMeals from '../../favorites/components/ListFavoritesMeals/ListFavoritesMeals';
+
 
 const categoryService = new CategoryService();
 
@@ -22,6 +25,7 @@ const Category = () => {
     if (isLoading) return <div>Loading</div>
     if (isError) return <div>Error: {error.message}</div>
 
+
   return (
     <Container fluid>
         <Link className='quicksand text-white link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to='/'>Retour aux Catégories</Link>
@@ -31,6 +35,7 @@ const Category = () => {
                 <div className='py-4'>
                     {data && data.meals.map(meal =>
                         <div className='d-inline-flex flex-row-reverse justify-content-center align-items-center border-bottom border-success mt-2' key={meal.strMeal}>
+                            <FavoriteButton meal={meal} />
                             <Link className='link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover' to={`/meals/${meal.idMeal}`} >
                                 <Card.Subtitle className='fs-4 text-dark quicksand'>{meal.strMeal}</Card.Subtitle>
                             </Link>
@@ -41,6 +46,9 @@ const Category = () => {
                     )}
                 </div>
             </Col>
+        </Card>
+        <Card className='my-4 p-0 text-dark'>
+            <ListFavoritesMeals />
         </Card>
     </Container>
   )

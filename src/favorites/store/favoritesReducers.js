@@ -4,7 +4,7 @@ const reducers = {
     },
     removeFavorite: (state, action) => {
         state.favorites = state.favorites.filter(
-            (favorite) => favorite.id !== action.payload.is
+            (favorite) => favorite.idMeal !== action.payload.idMeal
         );
     }
 }
